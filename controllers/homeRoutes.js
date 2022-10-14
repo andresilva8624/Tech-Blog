@@ -1,25 +1,25 @@
 const router = require('express').Router();
-const { Post, Comment, User } = require('../models/');
+const { Project, Comment, User } = require('../models/');
 
-// get all posts for homepage
+// get all Projects for homepage
 router.get('/', async (req, res) => {
   try {
-    const postData = await Post.findAll({
+    const projectData = await Project.findAll({
       include: [User],
     });
 
-    const posts = postData.map((post) => post.get({ plain: true }));
+    const projects = projectData.map((project) => project.get({ plain: true }));
 
-    res.render('all-posts', { posts });
+    res.render('all-projects', { projects });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// get single post
-router.get('/post/:id', async (req, res) => {
+// get single Project
+router.get('/Project/:id', async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.id, {
+    const projectData = await Project.findByPk(req.params.id, {
       include: [
         User,
         {
@@ -29,10 +29,10 @@ router.get('/post/:id', async (req, res) => {
       ],
     });
 
-    if (postData) {
-      const post = postData.get({ plain: true });
+    if (projectData) {
+      const project = projectData.get({ plain: true });
 
-      res.render('single-post', { post });
+      res.render('single-project', { project });
     } else {
       res.status(404).end();
     }

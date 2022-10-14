@@ -4,17 +4,17 @@ const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
   try {
-    const ProjectData = await Project.findAll({
+    const projectData = await Project.findAll({
       where: {
-        userId: req.session.userId,
+        userId: req.session.user_id,
       },
     });
 
-    const Projects = ProjectData.map((Project) => Project.get({ plain: true }));
+    const projects = projectData.map((project) => project.get({ plain: true }));
 
-    res.render('all-Projects-admin', {
+    res.render('all-projects-admin', {
       layout: 'dashboard',
-      Projects,
+      projects,
     });
   } catch (err) {
     res.redirect('login');
@@ -22,21 +22,21 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 router.get('/new', withAuth, (req, res) => {
-  res.render('new-Project', {
+  res.render('new-project', {
     layout: 'dashboard',
   });
 });
 
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
-    const ProjectData = await Project.findByPk(req.params.id);
+    const projectData = await Project.findBypk(req.params.id);
 
-    if (ProjectData) {
-      const Project = ProjectData.get({ plain: true });
+    if (projectData) {
+      const project = projectData.get({ plain: true });
 
-      res.render('edit-Project', {
+      res.render('edit-project', {
         layout: 'dashboard',
-        Project,
+        project,
       });
     } else {
       res.status(404).end();

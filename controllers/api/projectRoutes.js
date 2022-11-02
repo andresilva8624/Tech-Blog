@@ -6,7 +6,7 @@ router.post('/', withAuth, async (req, res) => {
   try {
     const newProject = await Project.create({
       ...req.body,
-      user_id: req.session.user_id,
+      userId: req.session.user_id,
     });
 
     res.status(200).json(newProject);
@@ -15,12 +15,31 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+
+  router.put('/:id', withAuth, async (req, res) => {
+    try {
+      const [affectedRows] = await Project.update(req.body, {
+        where: {
+          id: req.params.id,
+        },
+      });
+  
+      if (affectedRows > 0) {
+        res.status(200).end();
+      } else {
+        res.status(404).end();
+      }
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const projectData = await Project.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
+        userId: req.session.user_id,
       },
     });
 

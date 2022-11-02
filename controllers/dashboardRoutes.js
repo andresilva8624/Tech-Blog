@@ -29,7 +29,7 @@ router.get('/new', withAuth, (req, res) => {
 
 router.get('/edit/:id', withAuth, async (req, res) => {
   try {
-    const projectData = await Project.findBypk(req.params.id);
+    const projectData = await Project.findByPk(req.params.id);
 
     if (projectData) {
       const project = projectData.get({ plain: true });

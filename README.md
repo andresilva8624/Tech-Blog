@@ -26,7 +26,7 @@ Clone the repository to your local machine and open the server.js on your Termin
 
 [Deployed Site Web](https://andresilva8624.github.io/Tech-Blog/)
 
-[Deployed Heroku App] (https://andre-tech-blog.herokuapp.com/)
+[Deployed Heroku App](https://andre-tech-blog.herokuapp.com/)
 
 
 

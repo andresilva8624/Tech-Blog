@@ -2,9 +2,9 @@
 
 ![Badge](https://img.shields.io/badge/AndreGitHub-MIT-green.svg)
 
-The App is an Employee Tracker done with MySQL. You can view all the employees by their full name, title, department, what's their salary and if they have a manager or not and who that manager is. It gives you the option to navigate through each department and also to edit the employees, the roles, the deparments, the salary by removing them, adding them or updating. Enjoy! 😀
+The challenge was to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. The site is completely from scratch and deployed it to Heroku. The app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication. You can post on the blog under your name after you sign up and login. You can also updated a post, delete a post of comment on a post. Enjoy! 😀
 
-[Demonstrational Video Link](https://drive.google.com/file/d/1QMLxR7foUAEvVGwY6-goPx-G2NKuVWsD/view)
+
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -14,15 +14,19 @@ The App is an Employee Tracker done with MySQL. You can view all the employees b
 
 ## Installation
 
-Clone the repository to your local machine and open the index.js on your Terminal with Node.js
+You’ll need to use the express-handlebars. package to use Handlebars.js for your Views, use the MySQL2. and Sequelize. packages to connect to a MySQL database for your Models, and create an Express.js API for your Controllers.
+
+You’ll also need the dotenv package to use environment variables, the bcrypt package to hash passwords, and the express-session and connect-session-sequelize packages to add authentication.
+
+Clone the repository to your local machine and open the server.js on your Terminal with Node.js
 
 ## Usage
 
-[Deployed Site Repository](https://github.com/andresilva8624/Employee-Tracker)
+[Deployed Site Repository](https://github.com/andresilva8624/Tech-Blog)
 
-[Deployed Site Web](https://andresilva8624.github.io/Employee-Tracker/)
+[Deployed Site Web](https://andresilva8624.github.io/Tech-Blog/)
 
-![gif of deployed site](/assets/images/website.gif)
+
 
 ## Credits
 
